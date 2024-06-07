@@ -1,6 +1,33 @@
-.mainGrid{
+.gridContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    height: 1000px;
-    width: 1000px;
+.gridTitle{
+
+}
+
+
+#mainGrid{
+    background-color: gray;
+    height: 860px;
+    width: 860px;
     border-color: black;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.row{
+    display: flex;
+
+    flex: 1;
+    border-color: black;
+}
+
+.column{
+    flex: 1;
+    border-color: black;
+    border-style: solid;
 }
