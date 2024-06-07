@@ -1,6 +1,6 @@
 
 
-gridCreator(16);
+gridCreator(2);
 
 function gridCreator(num) {
 

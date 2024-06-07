@@ -1,32 +1,65 @@
-.gridContainer{
+body {
+    background-color: #191919;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    padding: 50px 100px 0 100px;
 }
 
-.gridTitle{
+.container1,
+.container3{
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 750px;
+    width: 300px;
+    margin: 0 40px 0 40px;
+}
+
+.container2{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    max-width: 750px;
+    height: 750px;
+}
+
+.brush,
+.paint,
+.container2,
+.grid,
+.info {
+    background-color: #272626;
+    flex: 1;
 }
 
 
-#mainGrid{
+
+.smallTitle{
+    font-family: "Nunito", sans-serif;
+    color: beige;
+}
+
+
+#mainGrid {
     background-color: gray;
-    height: 860px;
-    width: 860px;
+    height: 700px;
+    width: 700px;
     border-color: black;
 
     display: flex;
     flex-direction: column;
 }
 
-.row{
-    display: flex;
 
+.row {
+    display: flex;
     flex: 1;
-    border-color: black;
 }
 
-.column{
+.column {
     flex: 1;
     border-color: black;
     border-style: solid;
