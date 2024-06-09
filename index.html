@@ -23,12 +23,21 @@
 
     <div class="container1">
 
-        <div class="brush">
+        <div class="brushes">
+
             <div class="smallTitle">B R U S H E S</div>
-            <button class="brush">Brush</button>
-            <button class="brush">Eraser</button>
-            <button class="brush">Shader</button>
-            <button class="brush">Lightener</button>
+            <div class="brushButtons">
+                <div class="brushColumn">
+                    <button class="brush">Brush</button>
+                    <button class="brush">Eraser</button>
+                </div>
+                <div class="brushColumn">
+                    <button class="brush">Shader</button>
+                    <button class="brush">Lightener</button>
+                </div>
+            </div>
+            <button class="clearButton">Clear</button>
+
         </div>
 
         <div class="paint">
@@ -48,6 +57,11 @@
 
         <div class="grid">
             <div class="smallTitle">G R I D</div>
+
+            <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+
         </div>
 
         <div class="info">
