@@ -61,7 +61,7 @@ i {
 /* Brushes Container */
 .brush,
 .clearButton,
-.preset,
+.presets,
 .gridToggle {
     border-style: none;
     height: 100px;
@@ -100,7 +100,7 @@ i {
     display: flex;
 }
 
-.preset {
+.presets {
     height: 65px;
     width: 65px;
     margin: 2px;
