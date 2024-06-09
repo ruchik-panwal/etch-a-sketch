@@ -4,8 +4,15 @@ body {
     justify-content: center;
     align-items: center;
     padding: 50px 100px 0 100px;
+    font-family: "Nunito", sans-serif;
 }
 
+i {
+    color: white;
+    font-size: 25px;
+}
+
+/* Container for small end containers */
 .container1,
 .container3 {
     display: flex;
@@ -13,10 +20,11 @@ body {
     justify-content: space-between;
     flex-shrink: 0;
     height: 785px;
-    width: 300px;
+    width: 320px;
     margin: 0 30px 0 30px;
 }
 
+/* All Different definite containers */
 .brushes,
 .paint,
 .container2,
@@ -26,10 +34,12 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     padding: 10px 25px 25px 25px;
 }
 
+/* Main Grid Container */
 .container2 {
     display: flex;
     flex-direction: column;
@@ -41,26 +51,37 @@ body {
 }
 
 
-
+/* Left Container */
 .brushes,
 .grid {
     margin-bottom: 30px;
 }
 
+
+/* Brushes Container */
 .brush,
-.clearButton {
+.clearButton,
+.preset,
+.gridToggle {
     border-style: none;
     height: 100px;
     width: 115px;
     margin: 10px 0 10px 0;
+
+    border-width: 1px;
+    border-style: none;
     border-radius: 5px;
+    background-color: #363636;
+    color: white;
 
 }
 
-.clearButton {
+.clearButton,
+.gridToggle {
     height: 50px;
-    width: auto;
-    align-self: stretch;
+    width: 250px;
+
+    align-self: center;
 }
 
 .brushbuttons,
@@ -71,12 +92,24 @@ body {
 }
 
 .smallTitle {
-    font-family: "Nunito", sans-serif;
     color: beige;
     margin: 10px;
 }
 
+.gridPresets {
+    display: flex;
+}
+
+.preset {
+    height: 65px;
+    width: 65px;
+    margin: 2px;
+
+
+}
+
 /* The CSS for the grid */
+
 #mainGrid {
     background-color: white;
     height: 700px;
@@ -98,7 +131,15 @@ body {
     border-style: solid;
 }
 
+/* Slider */
+
+.sliderContainer {
+    width: 100%;
+}
+
 .slider {
     width: 100%;
-
+    height: 3px;
+    appearance: none;
+    accent-color: white;
 }

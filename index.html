@@ -17,6 +17,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
         rel="stylesheet">
 
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/befdb26257.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -28,15 +31,15 @@
             <div class="smallTitle">B R U S H E S</div>
             <div class="brushButtons">
                 <div class="brushColumn">
-                    <button class="brush">Brush</button>
-                    <button class="brush">Eraser</button>
+                    <button class="brush"><i class="fa-solid fa-paintbrush"></i></button>
+                    <button class="brush"><i class="fa-solid fa-eraser"></i></button>
                 </div>
                 <div class="brushColumn">
-                    <button class="brush">Shader</button>
-                    <button class="brush">Lightener</button>
+                    <button class="brush"><i class="fa-solid fa-square-plus"></i></button>
+                    <button class="brush"><i class="fa-solid fa-square-minus"></i></button>
                 </div>
             </div>
-            <button class="clearButton">Clear</button>
+            <button class="clearButton">C L E A R</button>
 
         </div>
 
@@ -50,6 +53,7 @@
 
         <div class="gridTitle smallTitle">E T C H - A - S K E T C H</div>
         <div id="mainGrid"></div>
+    <div class="smallTitle" id="gridInfo"></div>
 
     </div>
 
@@ -58,9 +62,19 @@
         <div class="grid">
             <div class="smallTitle">G R I D</div>
 
-            <div class="slidecontainer">
-                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            <div class="sliderContainer">
+                <input type="range" min="1" max="100" value="16" class="slider" id="myRange">
             </div>
+
+            <div class="gridPresets">
+                <button class="preset">16 X 16</button>
+                <button class="preset">32 X 32</button>
+                <button class="preset">64 X 64</button>
+                <button class="preset">96 X 96</button>
+            </div>
+
+            <button class="gridToggle">G R I D&nbsp;&nbsp;&nbsp;T O G G L E</button>
+            
 
         </div>
 

@@ -1,11 +1,14 @@
 //@ts-check
 const mainGrid = document.querySelector("#mainGrid");
 const slider = document.getElementById("myRange");
+const gridInfo = document.querySelector("#gridInfo")
 
-gridCreator(50);
+gridCreator(slider.value);
+gridInfo.textContent = (slider.value) + " X " + (slider.value) ;
 
 slider.oninput = function () {
     gridCreator(this.value)
+    gridInfo.textContent = (this.value) + " X " + (this.value) ;
 }
 
 
