@@ -127,7 +127,8 @@ i {
 
 .column {
     flex: 1;
-    border-color: black;
+    border-color: #8a8181;
+    border-width: 1px;
     border-style: solid;
 }
 

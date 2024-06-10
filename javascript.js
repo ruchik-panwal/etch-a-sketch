@@ -1,14 +1,31 @@
 
+
 const mainGrid = document.querySelector("#mainGrid");
 const slider = document.getElementById("myRange");
-const gridInfo = document.querySelector("#gridInfo")
+const gridInfo = document.querySelector("#gridInfo");
 
+//For showing the grid or not
+const gborder = document.querySelector(".gridToggle");
+let element;
+
+
+//Toggle Button for showing grid
+gborder.addEventListener('click', () => {
+    if (gborder.value == "1") {
+        gborder.value = "0";
+    }
+    else {
+        gborder.value = "1";
+    }
+    gridCreator(slider.value);
+});
+
+//Updating the slider value to everything
 gridCreator(slider.value);
 gridInfo.textContent = (slider.value) + " X " + (slider.value);
 
 // Changing resolution by using buttons
 const preset = document.querySelectorAll(".presets");
-
 preset.forEach((preset) => {
 
     preset.addEventListener('click', () => {
@@ -30,6 +47,7 @@ preset.forEach((preset) => {
     })
 })
 
+//Taking input from the slider and changing things
 slider.oninput = function () {
     gridCreator(this.value);
     gridInfo.textContent = (this.value) + " X " + (this.value);
@@ -60,41 +78,18 @@ function gridCreator(num) {
     }
 
     //GRID BORDER TOGGLE
-    const element = document.querySelectorAll(".column");
-    const gborder = document.querySelector(".gridToggle");
+    element = document.querySelectorAll(".column");
 
-    gborder.addEventListener('click', () => {
-
-        switch (gborder.value) {
-
-            case "1":
-                {
-                    element.forEach((element) => {
-
-                        element.setAttribute("style", "border-style: none;");
-
-                    });
-                    gborder.value = "0";
-                    break;
-                }
-
-            case "0": {
-                element.forEach((element) => {
-                    element.setAttribute("style", "border-style: solid;");
-
-                });
-                gborder.value = "1";
-                break;
-            }
-        }
-    });
+    if (gborder.value == "1") {
+        element.forEach((element) => {
+            element.setAttribute("style", "border-style: none;");
+        });
+    }
+    else {
+        element.forEach((element) => {
+            element.setAttribute("style", "border-style: solid;");
+        });
+    }
 }
-
-
-
-
-//Changing the border style 
-
-
 
 
