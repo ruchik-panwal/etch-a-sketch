@@ -10,6 +10,8 @@ body {
 i {
     color: white;
     font-size: 25px;
+    align-self: center;
+    margin: 5px;
 }
 
 /* Container for small end containers */
@@ -51,10 +53,11 @@ i {
 }
 
 
-/* Left Container */
+/* End Containers */
 .brushes,
 .grid {
     margin-bottom: 30px;
+    flex: 0;
 }
 
 
@@ -72,6 +75,7 @@ i {
     border-style: none;
     border-radius: 5px;
     background-color: #363636;
+    opacity: 0.8;
     color: white;
 
 }
@@ -80,7 +84,6 @@ i {
 .gridToggle {
     height: 50px;
     width: 250px;
-
     align-self: center;
 }
 
@@ -98,13 +101,14 @@ i {
 
 .gridPresets {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .presets {
-    height: 65px;
-    width: 65px;
-    margin: 2px;
-
+    align-self: center;
+    height: 70px;
+    width:60px;
 
 }
 
@@ -136,6 +140,11 @@ i {
 
 .sliderContainer {
     width: 100%;
+    margin: 5px 0 20px 0;
+}
+
+.gridToggle{
+    width: 100%;
 }
 
 .slider {
@@ -143,4 +152,21 @@ i {
     height: 3px;
     appearance: none;
     accent-color: white;
+}
+
+/* Info Tab */
+
+.info{
+    color: white;
+}
+
+/* Effects */
+
+button:hover{
+    opacity: 1;
+}
+
+button:active{
+    border-style: solid;
+    border-color: white;
 }

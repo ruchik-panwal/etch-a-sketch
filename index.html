@@ -31,12 +31,12 @@
             <div class="smallTitle">B R U S H E S</div>
             <div class="brushButtons">
                 <div class="brushColumn">
-                    <button class="brush"><i class="fa-solid fa-paintbrush"></i></button>
-                    <button class="brush"><i class="fa-solid fa-eraser"></i></button>
+                    <button class="brush" id="toggle"><i class="fa-solid fa-paintbrush"></i></button>
+                    <button class="brush" id="toggle"><i class="fa-solid fa-eraser"></i></button>
                 </div>
                 <div class="brushColumn">
-                    <button class="brush"><i class="fa-solid fa-square-plus"></i></button>
-                    <button class="brush"><i class="fa-solid fa-square-minus"></i></button>
+                    <button class="brush" id="toggle"><i class="fa-solid fa-square-plus"></i></button>
+                    <button class="brush" id="toggle"><i class="fa-solid fa-square-minus"></i></button>
                 </div>
             </div>
             <button class="clearButton">C L E A R</button>
@@ -57,7 +57,7 @@
                 <div class="column"></div>
             </div>
         </div>
-    <div class="smallTitle" id="gridInfo"></div>
+        <div class="smallTitle" id="gridInfo"></div>
 
     </div>
 
@@ -71,20 +71,27 @@
             </div>
 
             <div class="gridPresets">
-                <button class="presets" id="8">8 X 8</button>
+                <button class="presets" id="8" >8 X 8</button>
                 <button class="presets" id="16">16 X 16</button>
                 <button class="presets" id="32">32 X 32</button>
                 <button class="presets" id="64">64 X 64</button>
             </div>
 
-            <button class="gridToggle" value = "0">G R I D&nbsp;&nbsp;&nbsp;T O G G L E</button>
-            
+            <button class="gridToggle" value="0" id="toggle">G R I D&nbsp;&nbsp;&nbsp;T O G G L E</button>
+
 
         </div>
 
         <div class="info">
             <div class="smallTitle">I N F O</div>
+
+            <div>
+                <p>This project is done as an assignment give by The Odin Project.</p>
+                <p>To be honest, I made this info tab just to fill the remaining space.</p>
+                <p>Github :</p>
+            </div>
         </div>
+        <div></div>
 
     </div>
 

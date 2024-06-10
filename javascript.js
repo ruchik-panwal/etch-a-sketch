@@ -93,3 +93,17 @@ function gridCreator(num) {
 }
 
 
+
+const button = document.querySelectorAll("button");
+button.forEach((button) => {
+
+    button.addEventListener('mousedown', () => {
+
+        if (button.id == "toggle")
+            button.setAttribute("style", "border-style: solid; border-color: white;");
+
+
+    });
+
+});
+
