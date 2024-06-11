@@ -78,38 +78,39 @@ function gridCreator(num) {
                 element.setAttribute("style", "border-style: solid; border-width : 1px; background-color: black;");
         });
     });
-    
-    const button = document.querySelectorAll("button");
-    button.forEach((button) => {
-
-        button.addEventListener('mousedown', () => {
 
 
-            //For the grid to toggle show
-            if (button.id == "gtoggle") {
-                if (gborder.value == "1") {
-                    gborder.value = "0";
-                    gborder.setAttribute("style", "border-style: solid; border-color: white");
-                }
-                else {
-                    gborder.value = "1";
-                    gborder.setAttribute("style", "border: none;");
-                }
-            }
-        });
-    });
 
     borderToggle();
     presetToggle(num);
     gridInfo(num);
 
-    
-    
+
+
 
 
 }
 
+const button = document.querySelectorAll("button");
+button.forEach((button) => {
 
+    button.addEventListener('mousedown', () => {
+
+
+        //For the grid to toggle show
+        if (button.id == "gtoggle") {
+            if (gborder.value == "1") {
+                gborder.value = "0";
+                gborder.setAttribute("style", "border-style: solid; border-color: white");
+            }
+            else {
+                gborder.value = "1";
+                gborder.setAttribute("style", "border: none;");
+            }
+            gridCreator(slider.value);
+        }
+    });
+});
 
 
 // Taking the color from the User
