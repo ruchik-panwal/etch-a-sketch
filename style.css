@@ -127,13 +127,13 @@ i {
 .row {
     display: flex;
     flex: 1;
+    border: none;
 }
 
 .column {
     flex: 1;
     border-color: #8a8181;
-    border-width: 1px;
-    border-style: solid;
+
 }
 
 /* Slider */
@@ -160,6 +160,12 @@ i {
     color: white;
 }
 
+/* Paint Tab */
+.colorSelector{
+    width: 100%;
+    border-style: none ;
+    background: none;
+}
 /* Effects */
 
 button:hover{

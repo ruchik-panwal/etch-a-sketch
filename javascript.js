@@ -2,7 +2,7 @@
 
 const mainGrid = document.querySelector("#mainGrid");
 const slider = document.getElementById("myRange");
-const gridInfo = document.querySelector("#gridInfo");
+
 
 //For the default toggle values
 const gborder = document.querySelector(".gridToggle");
@@ -12,7 +12,7 @@ let element;
 
 //Updating the slider value to everything
 gridCreator(slider.value);
-gridInfo.textContent = (slider.value) + " X " + (slider.value);
+
 
 // Changing resolution by using buttons
 const preset = document.querySelectorAll(".presets");
@@ -34,7 +34,7 @@ preset.forEach((preset) => {
             slider.value = 64;
 
         gridCreator(slider.value);
-        gridInfo.textContent = (slider.value) + " X " + (slider.value);
+
     })
 })
 
@@ -68,22 +68,74 @@ function gridCreator(num) {
         }
     }
 
-    //GRID BORDER TOGGLE
     element = document.querySelectorAll(".column");
+    element.forEach((element) => {
 
+        element.addEventListener('mousedown', () => {
+            if (gborder.value == "1")
+                element.setAttribute("style", "background-color: black;");
+            else
+                element.setAttribute("style", "border-style: solid; border-width : 1px; background-color: black;");
+        });
+    });
+    
+    const button = document.querySelectorAll("button");
+    button.forEach((button) => {
+
+        button.addEventListener('mousedown', () => {
+
+
+            //For the grid to toggle show
+            if (button.id == "gtoggle") {
+                if (gborder.value == "1") {
+                    gborder.value = "0";
+                    gborder.setAttribute("style", "border-style: solid; border-color: white");
+                }
+                else {
+                    gborder.value = "1";
+                    gborder.setAttribute("style", "border: none;");
+                }
+            }
+        });
+    });
+
+    borderToggle();
+    presetToggle(num);
+    gridInfo(num);
+
+    
+    
+
+
+}
+
+
+
+
+// Taking the color from the User
+const colorPicker = document.querySelector(".colorSelector");
+let color = colorPicker.value;
+colorPicker.oninput = function () {
+    color = this.value;
+}
+
+
+function borderToggle() {
+    element = document.querySelectorAll(".column");
     if (gborder.value == "1") {
         element.forEach((element) => {
-            element.setAttribute("style", "border-style: none;");
+            element.style.borderStyle = "none";
         });
     }
     else {
         element.forEach((element) => {
-            element.setAttribute("style", "border-style: solid;");
+            element.style.borderStyle = "solid";
+            element.style.borderWidth = "1px";
         });
     }
+}
 
-    //PRESET TOGGLE
-
+function presetToggle(num) {
     const tpreset = document.querySelectorAll(".presets");
     tpreset.forEach((tpreset) => {
 
@@ -101,32 +153,10 @@ function gridCreator(num) {
             if (tpreset.id == "64" && num == 64)
                 tpreset.setAttribute("style", "border-style: solid; border-color: white;");
         }
-        
-            
     });
-
 }
 
-
-const button = document.querySelectorAll("button");
-
-button.forEach((button) => {
-
-    button.addEventListener('mousedown', () => {
-
-
-        //For the grid to toggle show
-        if (button.id == "gtoggle") {
-            if (gborder.value == "1") {
-                gborder.value = "0";
-                gborder.setAttribute("style", "border-style: solid; border-color: white;");
-            }
-            else {
-                gborder.value = "1";
-                gborder.setAttribute("style", "border-style: none;");
-            }
-            gridCreator(slider.value);
-        }
-
-    });
-});
+function gridInfo(num) {
+    const gridInfo = document.querySelector("#gridInfo");
+    gridInfo.textContent = (num) + " X " + (num);
+}
