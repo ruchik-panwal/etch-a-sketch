@@ -86,6 +86,8 @@ function gridCreator(num) {
 
     const tpreset = document.querySelectorAll(".presets");
     tpreset.forEach((tpreset) => {
+
+        tpreset.setAttribute("style", "border-style: none; ");
         if (num == 8 || num == 16 || num == 32 || num == 64) {
             if (tpreset.id == "8" && num == 8)
                 tpreset.setAttribute("style", "border-style: solid; border-color: white;");
@@ -99,8 +101,8 @@ function gridCreator(num) {
             if (tpreset.id == "64" && num == 64)
                 tpreset.setAttribute("style", "border-style: solid; border-color: white;");
         }
-        else
-            tpreset.setAttribute("style", "border-style: none; ");
+        
+            
     });
 
 }
