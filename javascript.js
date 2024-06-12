@@ -2,13 +2,12 @@
 
 const mainGrid = document.querySelector("#mainGrid");
 const slider = document.getElementById("myRange");
-
+let element;
 
 //For the default toggle values
 const gborder = document.querySelector(".gridToggle");
 gborder.setAttribute("style", "border-style: solid; border-color: white;");
 
-let element;
 
 //Updating the slider value to everything
 gridCreator(slider.value);
@@ -44,9 +43,6 @@ slider.oninput = function () {
     gridInfo.textContent = (this.value) + " X " + (this.value);
 }
 
-
-
-
 function gridCreator(num) {
 
     if (mainGrid.hasChildNodes) {
@@ -68,26 +64,10 @@ function gridCreator(num) {
         }
     }
 
-    element = document.querySelectorAll(".column");
-    element.forEach((element) => {
-
-        element.addEventListener('mousedown', () => {
-            if (gborder.value == "1")
-                element.setAttribute("style", "background-color: black;");
-            else
-                element.setAttribute("style", "border-style: solid; border-width : 1px; background-color: black;");
-        });
-    });
-
-
-
+    colorChanger()
     borderToggle();
     presetToggle(num);
     gridInfo(num);
-
-
-
-
 
 }
 
@@ -95,7 +75,6 @@ const button = document.querySelectorAll("button");
 button.forEach((button) => {
 
     button.addEventListener('mousedown', () => {
-
 
         //For the grid to toggle show
         if (button.id == "gtoggle") {
@@ -107,7 +86,7 @@ button.forEach((button) => {
                 gborder.value = "1";
                 gborder.setAttribute("style", "border: none;");
             }
-            gridCreator(slider.value);
+            borderToggle();
         }
     });
 });
@@ -120,6 +99,21 @@ colorPicker.oninput = function () {
     color = this.value;
 }
 
+function colorChanger() {
+    element = document.querySelectorAll(".column");
+    element.forEach((element) => {
+
+        element.addEventListener('mousedown', () => {
+            if (gborder.value == "1")
+                element.style.backgroundColor = color;
+            else {
+                element.style.backgroundColor = color;
+                element.style.borderStyle = "solid";
+                element.style.backgroundColor = "1px";
+            }
+        });
+    });
+}
 
 function borderToggle() {
     element = document.querySelectorAll(".column");
