@@ -6,6 +6,8 @@ let element;
 
 //For the default toggle values
 const gborder = document.querySelector(".gridToggle");
+const brush = document.querySelector("#brush");
+brush.setAttribute("style", "border-style: solid; border-color: white;");
 gborder.setAttribute("style", "border-style: solid; border-color: white;");
 
 
@@ -72,32 +74,53 @@ function gridCreator(num) {
 }
 
 const button = document.querySelectorAll("button");
+const brushButton = document.querySelector("#brush");
+const eraserButton = document.querySelector("#eraser");
+
+// Taking the color from the User
+const colorPicker = document.querySelector(".colorSelector");
+let pcolor = colorPicker.value;
+colorPicker.oninput = function () {
+    pcolor = this.value;
+}
+let color = pcolor; //default
+
+
 button.forEach((button) => {
 
     button.addEventListener('mousedown', () => {
 
         //For the grid to toggle show
         if (button.id == "gtoggle") {
-            if (gborder.value == "1") {
-                gborder.value = "0";
+            if (gborder.value == "0") {
+                gborder.value = "1";
                 gborder.setAttribute("style", "border-style: solid; border-color: white");
             }
             else {
-                gborder.value = "1";
+                gborder.value = "0";
                 gborder.setAttribute("style", "border: none;");
             }
             borderToggle();
+        }
+
+        if (button.id == "brush") {
+            button.setAttribute("style", "border-style: solid; border-color: white");
+            eraserButton.setAttribute("style", "border: none;");
+            color = pcolor;
+        }
+        else if (button.id == "eraser") {
+            button.setAttribute("style", "border-style: solid; border-color: white");
+            brushButton.setAttribute("style", "border: none;");
+            color = "white";
+        }
+        if (button.id == "clear") {
+            gridCreator(slider.value);
         }
     });
 });
 
 
-// Taking the color from the User
-const colorPicker = document.querySelector(".colorSelector");
-let color = colorPicker.value;
-colorPicker.oninput = function () {
-    color = this.value;
-}
+
 
 function colorChanger() {
     element = document.querySelectorAll(".column");
@@ -117,7 +140,7 @@ function colorChanger() {
 
 function borderToggle() {
     element = document.querySelectorAll(".column");
-    if (gborder.value == "1") {
+    if (gborder.value == "0") {
         element.forEach((element) => {
             element.style.borderStyle = "none";
         });
