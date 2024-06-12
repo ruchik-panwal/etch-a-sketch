@@ -60,12 +60,11 @@ i {
     flex: 0;
 }
 
-
-/* Brushes Container */
 .brush,
 .clearButton,
 .presets,
-.gridToggle {
+.gridToggle,
+.rainbow {
     border-style: none;
     height: 100px;
     width: 115px;
@@ -81,7 +80,8 @@ i {
 }
 
 .clearButton,
-.gridToggle {
+.gridToggle,
+.rainbow{
     height: 50px;
     width: 250px;
     align-self: center;
@@ -143,7 +143,8 @@ i {
     margin: 5px 0 20px 0;
 }
 
-.gridToggle{
+.gridToggle,
+.rainbow{
     width: 100%;
 }
 

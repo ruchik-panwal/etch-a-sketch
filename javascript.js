@@ -116,6 +116,10 @@ button.forEach((button) => {
         if (button.id == "clear") {
             gridCreator(slider.value);
         }
+
+        if(button.id == "rainbow"){
+            
+        }
     });
 });
 
@@ -127,6 +131,7 @@ function colorChanger() {
     element.forEach((element) => {
 
         element.addEventListener('mousedown', () => {
+
             if (gborder.value == "1")
                 element.style.backgroundColor = color;
             else {
@@ -134,6 +139,8 @@ function colorChanger() {
                 element.style.borderStyle = "solid";
                 element.style.backgroundColor = "1px";
             }
+
+
         });
     });
 }
