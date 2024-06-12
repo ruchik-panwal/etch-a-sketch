@@ -132,7 +132,7 @@ function colorChanger() {
 
         element.addEventListener('mousedown', () => {
 
-            if (gborder.value == "1")
+            if (gborder.value == "0")
                 element.style.backgroundColor = color;
             else {
                 element.style.backgroundColor = color;

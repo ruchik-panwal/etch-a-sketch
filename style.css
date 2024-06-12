@@ -177,3 +177,11 @@ button:active{
     border-style: solid;
     border-color: white;
 }
+
+img{
+    width: 100%;
+}
+
+a{
+    color: white;
+}
