@@ -26,6 +26,9 @@ colorPicker.oninput = function () {
 
 
 
+
+
+
 //Updating the slider value to everything
 gridCreator(slider.value);
 
@@ -81,7 +84,7 @@ function gridCreator(num) {
         }
     }
 
-    colorChanger()
+    colorChanger();
     borderToggle();
     presetToggle(num);
     gridInfo(num);
@@ -91,8 +94,6 @@ function gridCreator(num) {
 const button = document.querySelectorAll("button");
 const brushButton = document.querySelector("#brush");
 const eraserButton = document.querySelector("#eraser");
-
-
 
 button.forEach((button) => {
 
@@ -168,7 +169,7 @@ button.forEach((button) => {
             else {
                 rando.value = "0";
                 rando.setAttribute("style", "border: none;");
-                color = "black";
+                color = pcolor;
             }
             brushButton.setAttribute("style", "border-style: solid; border-color: white");
             eraserButton.setAttribute("style", "border: none;");
@@ -179,11 +180,14 @@ button.forEach((button) => {
 });
 
 
+
+
 function colorChanger() {
     element = document.querySelectorAll(".column");
 
 
     element.forEach((element) => {
+
 
         if (drag == 0) {
             element.addEventListener('mousedown', () => {
@@ -205,12 +209,17 @@ function colorChanger() {
     });
 
     element.forEach((element) => {
-
-        element.addEventListener('mouseup', () => {
-            drag = 0;
-        });
-
         if (drag == 1) {
+            element.addEventListener('mouseup', () => {
+                drag = 0;
+            });
+        }
+    });
+
+    if (drag == 1) {
+
+        element.forEach((element) => {
+
             element.addEventListener('mouseenter', () => {
                 if (rando.value == "1") {
                     color = randomColor();
@@ -223,8 +232,11 @@ function colorChanger() {
                     element.style.backgroundColor = "1px";
                 }
             });
-        }
-    });
+
+        });
+    }
+
+
 }
 
 
