@@ -2,6 +2,7 @@
 
 const mainGrid = document.querySelector("#mainGrid");
 const slider = document.getElementById("myRange");
+const rando = document.querySelector("#rainbow");
 let element;
 let drag = 0;
 
@@ -17,10 +18,11 @@ let pcolor = colorPicker.value;
 let color = pcolor; //default;
 colorPicker.oninput = function () {
     pcolor = this.value;
+    rando.value = 0;
+    rando.setAttribute("style", "border: none;");
     color = pcolor;
 }
 
-const rando = document.querySelector("#rainbow");
 
 
 //Updating the slider value to everything
@@ -118,6 +120,7 @@ button.forEach((button) => {
             brushButton.setAttribute("style", "border: none;");
             color = "white";
         }
+
         if (button.id == "clear") {
             gridCreator(slider.value);
         }
@@ -139,9 +142,11 @@ button.forEach((button) => {
             if (button.id == "black") {
                 color = "black";
             }
-            rando.value = "0";
-            rando.setAttribute("style", "border: none;");
         }
+
+        rando.value = 0;
+        rando.setAttribute("style", "border: none;");
+        
         if (button.id == "rainbow") {
             if (rando.value == "0") {
                 rando.value = "1";
@@ -153,6 +158,8 @@ button.forEach((button) => {
                 color = "black";
             }
         }
+
+        
     });
 });
 
