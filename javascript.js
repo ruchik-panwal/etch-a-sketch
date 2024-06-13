@@ -3,12 +3,24 @@
 const mainGrid = document.querySelector("#mainGrid");
 const slider = document.getElementById("myRange");
 let element;
+let drag = 0;
 
 //For the default toggle values
 const gborder = document.querySelector(".gridToggle");
 const brush = document.querySelector("#brush");
 brush.setAttribute("style", "border-style: solid; border-color: white;");
 gborder.setAttribute("style", "border-style: solid; border-color: white;");
+
+// Taking the color from the User
+const colorPicker = document.querySelector(".colorSelector");
+let pcolor = colorPicker.value;
+let color = pcolor; //default;
+colorPicker.oninput = function () {
+    pcolor = this.value;
+    color = pcolor;
+}
+
+const rando = document.querySelector("#rainbow");
 
 
 //Updating the slider value to everything
@@ -77,13 +89,6 @@ const button = document.querySelectorAll("button");
 const brushButton = document.querySelector("#brush");
 const eraserButton = document.querySelector("#eraser");
 
-// Taking the color from the User
-const colorPicker = document.querySelector(".colorSelector");
-let pcolor = colorPicker.value;
-colorPicker.oninput = function () {
-    pcolor = this.value;
-}
-let color = pcolor; //default
 
 
 button.forEach((button) => {
@@ -117,33 +122,89 @@ button.forEach((button) => {
             gridCreator(slider.value);
         }
 
-        if(button.id == "rainbow"){
-            
+        if (button.className == "colorButton") {
+            button.setAttribute("style", "border: none;");
+            if (button.id == "red") {
+                color = "red";
+            }
+
+            if (button.id == "blue") {
+                color = "blue";
+            }
+
+            if (button.id == "green") {
+                color = "green";
+            }
+
+            if (button.id == "black") {
+                color = "black";
+            }
+            rando.value = "0";
+            rando.setAttribute("style", "border: none;");
+        }
+        if (button.id == "rainbow") {
+            if (rando.value == "0") {
+                rando.value = "1";
+                rando.setAttribute("style", "border-style: solid; border-color: white");
+            }
+            else {
+                rando.value = "0";
+                rando.setAttribute("style", "border: none;");
+                color = "black";
+            }
         }
     });
 });
 
 
-
-
 function colorChanger() {
     element = document.querySelectorAll(".column");
+
+
     element.forEach((element) => {
 
-        element.addEventListener('mousedown', () => {
+        if (drag == 0) {
+            element.addEventListener('mousedown', () => {
+                if (rando.value == "1") {
+                    color = randomColor();
+                }
+                if (gborder.value == "0")
+                    element.style.backgroundColor = color;
+                else {
+                    element.style.backgroundColor = color;
+                    element.style.borderStyle = "solid";
+                    element.style.backgroundColor = "1px";
+                }
+                drag = 1;
+                colorChanger();
+            });
+        }
 
-            if (gborder.value == "0")
-                element.style.backgroundColor = color;
-            else {
-                element.style.backgroundColor = color;
-                element.style.borderStyle = "solid";
-                element.style.backgroundColor = "1px";
-            }
+    });
 
+    element.forEach((element) => {
 
+        element.addEventListener('mouseup', () => {
+            drag = 0;
         });
+
+        if (drag == 1) {
+            element.addEventListener('mouseenter', () => {
+                if (rando.value == "1") {
+                    color = randomColor();
+                }
+                if (gborder.value == "0")
+                    element.style.backgroundColor = color;
+                else {
+                    element.style.backgroundColor = color;
+                    element.style.borderStyle = "solid";
+                    element.style.backgroundColor = "1px";
+                }
+            });
+        }
     });
 }
+
 
 function borderToggle() {
     element = document.querySelectorAll(".column");
@@ -184,4 +245,12 @@ function presetToggle(num) {
 function gridInfo(num) {
     const gridInfo = document.querySelector("#gridInfo");
     gridInfo.textContent = (num) + " X " + (num);
+}
+
+function randomColor() {
+    let ran = Math.floor(Math.random() * 1000000);
+    while (String(ran).length < 6) {
+        ran = ran * 10;
+    }
+    return "#" + ran;
 }
