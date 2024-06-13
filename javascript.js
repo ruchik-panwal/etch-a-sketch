@@ -3,6 +3,7 @@
 const mainGrid = document.querySelector("#mainGrid");
 const slider = document.getElementById("myRange");
 const rando = document.querySelector("#rainbow");
+const cPreset = document.querySelectorAll(".colorPreset")
 let element;
 let drag = 0;
 
@@ -119,6 +120,9 @@ button.forEach((button) => {
             button.setAttribute("style", "border-style: solid; border-color: white");
             brushButton.setAttribute("style", "border: none;");
             color = "white";
+
+            rando.value = 0;
+            rando.setAttribute("style", "border: none;");
         }
 
         if (button.id == "clear") {
@@ -127,26 +131,35 @@ button.forEach((button) => {
 
         if (button.className == "colorButton") {
             button.setAttribute("style", "border: none;");
+
             if (button.id == "red") {
                 color = "red";
+                colorPicker.value = "#ff0000";
             }
 
             if (button.id == "blue") {
                 color = "blue";
+                colorPicker.value = "#0000ff";
             }
 
             if (button.id == "green") {
                 color = "green";
+                colorPicker.value = "#008000";
             }
 
             if (button.id == "black") {
                 color = "black";
+                colorPicker.value = "#000000";
             }
+
+
+            rando.value = 0;
+            rando.setAttribute("style", "border: none;");
+            brushButton.setAttribute("style", "border-style: solid; border-color: white");
+            eraserButton.setAttribute("style", "border: none;");
         }
 
-        rando.value = 0;
-        rando.setAttribute("style", "border: none;");
-        
+
         if (button.id == "rainbow") {
             if (rando.value == "0") {
                 rando.value = "1";
@@ -157,9 +170,11 @@ button.forEach((button) => {
                 rando.setAttribute("style", "border: none;");
                 color = "black";
             }
+            brushButton.setAttribute("style", "border-style: solid; border-color: white");
+            eraserButton.setAttribute("style", "border: none;");
         }
 
-        
+
     });
 });
 
