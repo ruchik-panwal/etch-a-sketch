@@ -73,12 +73,14 @@ function gridCreator(num) {
 
         const row = document.createElement("div");
         row.classList.add("row");
+        row.draggable = false;
         mainGrid.appendChild(row);
 
         for (let j = 0; j < num; j++) {
 
             const column = document.createElement("div");
             column.classList.add("column");
+            column.draggable = false;
             row.appendChild(column);
 
         }
@@ -184,58 +186,47 @@ button.forEach((button) => {
 
 function colorChanger() {
 
-    element = document.querySelectorAll(".column");
+    const elements = document.querySelectorAll(".column");
 
-    // The element starts coloring
-    if (drag == 0) {
-        element.forEach((element) => {
+    elements.forEach((element) => {
 
-            element.addEventListener('mousedown', () => {
-                if (rando.value == "1") {
-                    color = randomColor();
-                }
-                if (gborder.value == "0")
-                    element.style.backgroundColor = color;
-                else {
-                    element.style.backgroundColor = color;
-                    element.style.borderStyle = "solid";
-                    element.style.backgroundColor = "1px";
-                }
-                // making drag = 1 so the mouse enter gets enabled
-                drag = 1;
-                colorChanger();
-            });
+        element.addEventListener('mousedown', () => {
+            if (rando.value == "1") {
+                color = randomColor();
+            }
+            if (gborder.value == "0") {
+                element.style.backgroundColor = color;
+            }
+            else {
+                element.style.backgroundColor = color;
+                element.style.borderStyle = "solid";
+                element.style.borderWidth = "1px";
+            }
+            drag = 1;
         });
-    }
 
-    // Stopping the coloring S
-    element.forEach((element) => {
         element.addEventListener('mouseup', () => {
             drag = 0;
         });
 
-    });
-
-    // continuing when the mouse is down (drag = 1)
-    if (drag == 1) {
-        element.forEach((element) => {
-
-            element.addEventListener('mouseenter', () => {
+        element.addEventListener('mouseenter', () => {
+            if (drag === 1) {
                 if (rando.value == "1") {
                     color = randomColor();
                 }
-                if (gborder.value == "0")
+                if (gborder.value == "0") {
                     element.style.backgroundColor = color;
+                }
                 else {
                     element.style.backgroundColor = color;
                     element.style.borderStyle = "solid";
-                    element.style.backgroundColor = "1px";
+                    element.style.borderWidth = "1px";
                 }
-            });
-
+            }
         });
-    }
+    });
 }
+
 
 
 
