@@ -183,13 +183,13 @@ button.forEach((button) => {
 
 
 function colorChanger() {
+
     element = document.querySelectorAll(".column");
 
+    // The element starts coloring
+    if (drag == 0) {
+        element.forEach((element) => {
 
-    element.forEach((element) => {
-
-
-        if (drag == 0) {
             element.addEventListener('mousedown', () => {
                 if (rando.value == "1") {
                     color = randomColor();
@@ -201,23 +201,23 @@ function colorChanger() {
                     element.style.borderStyle = "solid";
                     element.style.backgroundColor = "1px";
                 }
+                // making drag = 1 so the mouse enter gets enabled
                 drag = 1;
                 colorChanger();
             });
-        }
+        });
+    }
 
-    });
-
+    // Stopping the coloring S
     element.forEach((element) => {
-        if (drag == 1) {
-            element.addEventListener('mouseup', () => {
-                drag = 0;
-            });
-        }
+        element.addEventListener('mouseup', () => {
+            drag = 0;
+        });
+
     });
 
+    // continuing when the mouse is down (drag = 1)
     if (drag == 1) {
-
         element.forEach((element) => {
 
             element.addEventListener('mouseenter', () => {
@@ -235,9 +235,8 @@ function colorChanger() {
 
         });
     }
-
-
 }
+
 
 
 function borderToggle() {
