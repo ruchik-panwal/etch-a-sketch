@@ -5,6 +5,8 @@ body {
     align-items: center;
     padding: 50px 100px 0 100px;
     font-family: "Nunito", sans-serif;
+
+    user-select: none;
 }
 
 i {
